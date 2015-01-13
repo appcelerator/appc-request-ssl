@@ -6,12 +6,6 @@
  * part of the Appcelerator Platform and governed under the terms
  * of the Appcelerator license agreement.
  */
-var request = require('request-ssl'),
-	async = require('async'),
-	fs = require('fs'),
-	path = require('path'),
-	dir = path.join(__dirname,'fingerprints');
-
 const DOMAINS = [
 	// Production domains
 	'dashboard.appcelerator.com',
@@ -31,6 +25,11 @@ const DOMAINS = [
 // if you run this file from the command line, will generate fresh fingerprints from 
 // the DOMAINS array above
 if (module.id === ".") {
+	var request = require('request-ssl'),
+		async = require('async'),
+		fs = require('fs'),
+		path = require('path'),
+		dir = path.join(__dirname,'fingerprints');
 	async.eachSeries(DOMAINS, function(domain, cb){
 		console.log('-> checking',domain);
 		request.getFingerprintForURL(domain, function(err,fingerprint){
