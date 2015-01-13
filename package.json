@@ -1,0 +1,36 @@
+{
+  "name": "appc-request-ssl",
+  "version": "1.0.0",
+  "description": "Appcelerator Configured Request SSL Pinning Library",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:appcelerator/appc-request-ssl.git"
+  },
+  "keywords": [
+    "appcelerator",
+    "ssl",
+    "request"
+  ],
+  "author": "Jeff Haynie",
+  "license": "Appcelerator Software License (non-open source)",
+  "bugs": {
+    "url": "https://github.com/appcelerator/appc-request-ssl/issues"
+  },
+  "homepage": "https://github.com/appcelerator/appc-request-ssl",
+  "dependencies": {
+    "request-ssl": "0.0.4"
+  },
+  "devDependencies": {
+    "async": "^0.9.0",
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-kahvesi": "^0.1.0",
+    "grunt-mocha-test": "^0.12.6",
+    "mocha": "^2.1.0",
+    "should": "^4.6.0"
+  }
+}
