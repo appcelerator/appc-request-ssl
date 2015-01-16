@@ -19,7 +19,8 @@ const DOMAINS = [
 	// Test / Pre-production domains
 	'admin.cloudapp-enterprise-preprod.appctest.com',
 	'preprod-api.cloud.appctest.com',
-	'360-preprod.appcelerator.com'
+	'360-preprod.appcelerator.com',
+	'dolphin-api.cloud.appctest.com'
 ];
 
 // if you run this file from the command line, will generate fresh fingerprints from 
