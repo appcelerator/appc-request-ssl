@@ -13,6 +13,7 @@ const DOMAINS = [
 	'admin.cloudapp.appcelerator.com',
 
 	// registry and security server which will need to be updated once we move into prod
+    '3a3597615eabd843c6a04b5b650778dbe2feb975.cloudapp-enterprise-preprod.appctest.com',
 	'9bcfd7d35d3f2ad0ad069665d0120b7a381f81e9.cloudapp.appcelerator.com',
 	'de7a3ab4b12bf1d3d4b7fde7f306c11bc2b98f67.cloudapp-enterprise-preprod.appctest.com',
 

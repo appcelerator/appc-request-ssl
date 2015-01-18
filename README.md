@@ -7,7 +7,7 @@ This library when used, will add all the external HTTPS SSL certificate fingerpr
 
 ## How to update
 
-- Update `DOMAINS`
+- Update `DOMAINS` in generate.js
 - run `node ./generate` to generate the updated fingerprints
 - run `grunt`
 - if everything works good and all tests passed, release this module to npm and make sure dependent packages get updated
