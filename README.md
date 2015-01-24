@@ -1,4 +1,4 @@
-# Appcelerator Request SSL
+# Appcelerator Request SSL [![Build Status](https://travis-ci.org/appcelerator/appc-request-ssl.svg?branch=master)](https://travis-ci.org/appcelerator/appc-request-ssl) [![npm version](https://badge.fury.io/js/appc-request-ssl.svg)](http://badge.fury.io/js/appc-request-ssl)
 
 This library is based off of [request-ssl](https://github.com/jhaynie/request-ssl).
 
