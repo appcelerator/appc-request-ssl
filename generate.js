@@ -22,6 +22,7 @@ const DOMAINS = [
 	'9bcfd7d35d3f2ad0ad069665d0120b7a381f81e9.cloudapp.appcelerator.com',
 	'de7a3ab4b12bf1d3d4b7fde7f306c11bc2b98f67.cloudapp-enterprise-preprod.appctest.com',
 	'4503ef0cc4daae71d3bb898f66c72b886c9f6d61.cloudapp-enterprise.appcelerator.com',
+	'27fe40d4c11c2bd6187b5d74ae8ceba06844539a.cloudapp-enterprise.appcelerator.com',
 
 	// Test / Pre-production domains
 	'admin.cloudapp-enterprise-preprod.appctest.com',
