@@ -29,7 +29,7 @@ const DOMAINS = [
 	// Test / Pre-production domains
 	'admin.cloudapp-enterprise-preprod.appctest.com',
 	'preprod-api.cloud.appctest.com',
-	'360-preprod.appcelerator.com',
+	'360-preprod.cloud.appctest.com',
 	'dolphin-api.cloud.appctest.com'
 ];
 
