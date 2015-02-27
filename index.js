@@ -21,7 +21,17 @@ if (process.env.APPC_FINGERPRINT_DIRECTORY) {
 	request.addFingerprintDirectory(process.env.APPC_FINGERPRINT_DIRECTORY);
 }
 
-module.exports = request;
+// register a request initializer function that will fetch our latest AppC fingerprints
+request.registerInitializer(function(){
+	var fetch = require('./fetch');
+	fetch(function(err){
+		if (err) {
+			console.error('Error fetching Appcelerator SSL fingerprints. '+err);
+		}
+	});
+});
 
 // expose our domains, helpful in testing
 request.APPC_DOMAINS = require('./generate').DOMAINS;
+
+module.exports = request;

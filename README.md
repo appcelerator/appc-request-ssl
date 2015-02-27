@@ -5,13 +5,6 @@ This library is based off of [request-ssl](https://github.com/jhaynie/request-ss
 This library when used, will add all the external HTTPS SSL certificate fingerprints for domains used by Appcelerator software (Node.JS based).
 
 
-## How to update
-
-- Update `DOMAINS` in generate.js
-- run `node ./generate` to generate the updated fingerprints
-- run `grunt`
-- if everything works good and all tests passed, release this module to npm and make sure dependent packages get updated
-
 ## How to use
 
 Use the same as `request-ssl` and `request`.  Same exact API.
