@@ -22,12 +22,13 @@ if (process.env.APPC_FINGERPRINT_DIRECTORY) {
 }
 
 // register a request initializer function that will fetch our latest AppC fingerprints
-request.registerInitializer(function(){
+request.registerInitializer(function(callback){
 	var fetch = require('./fetch');
 	fetch(function(err){
 		if (err) {
 			console.error('Error fetching Appcelerator SSL fingerprints. '+err);
 		}
+		callback();
 	});
 });
 
