@@ -11,10 +11,7 @@ var request = require('request-ssl'),
 	fs = require('fs'),
 	urlib = require('url'),
 	tmpdir = require('os').tmpdir(),
-	dir = path.join(tmpdir, 'appc-request-ssl'),
-	added;
-
-const APPC_SECURITY_SERVER = process.env.APPC_SECURITY_SERVER || 'https://4503ef0cc4daae71d3bb898f66c72b886c9f6d61.cloudapp-enterprise.appcelerator.com';
+	dir = path.join(tmpdir, 'appc-request-ssl');
 
 /**
  * this function will fetch the SSL fingerprints from the security server for all
@@ -26,21 +23,16 @@ function fetch(callback) {
 	if (!fs.existsSync(dir)) {
 		fs.mkdirSync(dir);
 	}
-	if (!added) {
-		// tell our request library to use our cached fingerprint directory
-		// to locate any fingerprints
-		request.addFingerprintDirectory(dir);
-		added = true;
-	}
 	// attempt to read in the etag cached file if it exists
 	var etagFn = path.join(dir, '.etag'),
 		etag;
 	if (fs.existsSync(etagFn)) {
 		etag = fs.readFileSync(etagFn).toString().trim();
 	}
+	var server = process.env.APPC_SECURITY_SERVER || 'https://4503ef0cc4daae71d3bb898f66c72b886c9f6d61.cloudapp-enterprise.appcelerator.com';
 	var opts = {
 		method: 'get',
-		url: urlib.resolve(APPC_SECURITY_SERVER,'/ssl-fingerprints'),
+		url: urlib.resolve(server,'/ssl-fingerprints'),
 		headers: {
 			'User-Agent': 'Appcelerator (appc-request-ssl)/'+require('./package.json').version,
 			'If-None-Match': etag || ''
@@ -54,6 +46,7 @@ function fetch(callback) {
 		}
 		// not modified, no changes from what we have locally so we can just continue
 		if (resp.statusCode === 304) {
+			request.addFingerprintDirectory(dir);
 			return callback(null,null,dir);
 		}
 		// we received new fingerprints, we need to update our local cache
@@ -72,6 +65,7 @@ function fetch(callback) {
 				var entry = body[c];
 				fs.writeFileSync(path.join(dir, entry.domain), entry.fingerprint);
 			}
+			request.addFingerprintDirectory(dir);
 			callback(null, body, dir);
 		}
 		else {

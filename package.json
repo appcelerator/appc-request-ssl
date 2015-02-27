@@ -1,6 +1,6 @@
 {
   "name": "appc-request-ssl",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "Appcelerator Configured Request SSL Pinning Library",
   "main": "index.js",
   "scripts": {
