@@ -10,27 +10,11 @@
 // verify from browser at https://www.grc.com/fingerprints.htm
 
 const DOMAINS = [
-	// Production domains
-	'dashboard.appcelerator.com',
-	'api.cloud.appcelerator.com',
-	'admin.cloudapp.appcelerator.com',
-	'security.cloud.appcelerator.com',
-	'software.appcelerator.com',
-
-	// registry and security server which will need to be updated once we move into prod
-	'3a3597615eabd843c6a04b5b650778dbe2feb975.cloudapp-enterprise-preprod.appctest.com',
-	'9bcfd7d35d3f2ad0ad069665d0120b7a381f81e9.cloudapp.appcelerator.com',
+	'security.appcelerator.com',
+	// pre-production
 	'de7a3ab4b12bf1d3d4b7fde7f306c11bc2b98f67.cloudapp-enterprise-preprod.appctest.com',
+	// production
 	'4503ef0cc4daae71d3bb898f66c72b886c9f6d61.cloudapp-enterprise.appcelerator.com',
-	'27fe40d4c11c2bd6187b5d74ae8ceba06844539a.cloudapp-enterprise.appcelerator.com',
-	'8d2938f67044d8367d468453b5a6c2536185bcea.cloudapp-enterprise-preprod.appctest.com',
-	'4db53bb79d364bf3ea0595f95cb2bd1d55f355cb.cloudapp-enterprise.appcelerator.com',
-
-	// Test / Pre-production domains
-	'admin.cloudapp-enterprise-preprod.appctest.com',
-	'preprod-api.cloud.appctest.com',
-	'360-preprod.cloud.appctest.com',
-	'dolphin-api.cloud.appctest.com'
 ];
 
 
