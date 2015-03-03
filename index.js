@@ -28,7 +28,7 @@ request.registerInitializer(function(callback){
 		if (err) {
 			console.error('Error fetching Appcelerator SSL fingerprints. '+err);
 		}
-		callback();
+		if (callback) { return callback(); }
 	});
 });
 
