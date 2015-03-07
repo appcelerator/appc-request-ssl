@@ -6,7 +6,8 @@
  * part of the Appcelerator Platform and governed under the terms
  * of the Appcelerator license agreement.
  */
-var request = require('request-ssl'),
+// always load our bundled request-ssl, not one up the food chain.
+var request = require('./node_modules/request-ssl'),
 	path = require('path'),
 	fs = require('fs'),
 	urlib = require('url'),
