@@ -13,7 +13,9 @@
   "keywords": [
     "appcelerator",
     "ssl",
-    "request"
+    "request",
+    "appc-client",
+    "appc-jira-cli"
   ],
   "author": "Jeff Haynie",
   "license": "Appcelerator Software License (non-open source)",
