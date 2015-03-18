@@ -15,9 +15,9 @@ module.exports = function(grunt) {
 			},
 			src: tests
 		},
-		jshint: {
+		appcJs: {
 			options: {
-				jshintrc: true
+				force: true
 			},
 			src: ['index.js', 'lib/**/*.js', 'test/**/*.js']
 		},
@@ -26,7 +26,7 @@ module.exports = function(grunt) {
 
 	// Load grunt plugins for modules
 	grunt.loadNpmTasks('grunt-mocha-test');
-	grunt.loadNpmTasks('grunt-contrib-jshint');
+	grunt.loadNpmTasks('grunt-appc-js');
 	grunt.loadNpmTasks('grunt-kahvesi');
 
 	// compose our various coverage reports into one html report
@@ -40,7 +40,7 @@ module.exports = function(grunt) {
 	});
 
 	grunt.registerTask('cover', ['kahvesi', 'report']);
-	grunt.registerTask('test', ['jshint', 'mochaTest']);
+	grunt.registerTask('test', ['appcJs', 'mochaTest']);
 	grunt.registerTask('default', ['test']);
 
 };
