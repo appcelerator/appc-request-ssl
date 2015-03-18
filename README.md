@@ -1,9 +1,13 @@
-# Appcelerator Request SSL [![Build Status](https://travis-ci.org/appcelerator/appc-request-ssl.svg?branch=master)](https://travis-ci.org/appcelerator/appc-request-ssl) [![npm version](https://badge.fury.io/js/appc-request-ssl.svg)](http://badge.fury.io/js/appc-request-ssl)
+# Appcelerator Request SSL
+
+> This library when used, will add all the external HTTPS SSL certificate fingerprints for domains used by Appcelerator software (Node.JS based).
+
+[![Build Status](https://travis-ci.org/appcelerator/appc-request-ssl.svg?branch=master)](https://travis-ci.org/appcelerator/appc-request-ssl)
+[![Dependency Status](https://david-dm.org/appcelerator/appc-request-ssl.svg)](https://david-dm.org/appcelerator/appc-cli)
+[![devDependency Status](https://david-dm.org/appcelerator/appc-request-ssl/dev-status.svg)](https://david-dm.org/appcelerator/appc-request-ssl#info=devDependencies)
+[![npm version](https://badge.fury.io/js/appc-request-ssl.svg)](http://badge.fury.io/js/appc-request-ssl)
 
 This library is based off of [request-ssl](https://github.com/jhaynie/request-ssl).
-
-This library when used, will add all the external HTTPS SSL certificate fingerprints for domains used by Appcelerator software (Node.JS based).
-
 
 ## How to use
 
