@@ -12,7 +12,7 @@ var request = require('./node_modules/request-ssl'),
 	path = require('path');
 
 // load up the fingerprints from our local directory
-request.addFingerprintDirectory(path.join(__dirname,'fingerprints'));
+request.addFingerprintDirectory(path.join(__dirname, 'fingerprints'));
 
 // fall back to support a fingerprint list from ENV
 // these should overwrite any built in ones.  this is useful
@@ -23,11 +23,11 @@ if (process.env.APPC_FINGERPRINT_DIRECTORY) {
 }
 
 // register a request initializer function that will fetch our latest AppC fingerprints
-request.registerInitializer(function(callback){
+request.registerInitializer(function (callback) {
 	var fetch = require('./fetch');
-	fetch(function(err){
+	fetch(function (err) {
 		if (err) {
-			console.error('Error fetching Appcelerator SSL fingerprints. '+err);
+			console.error('Error fetching Appcelerator SSL fingerprints. ' + err);
 		}
 		if (callback) { return callback(); }
 	});
