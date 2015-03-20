@@ -45,6 +45,11 @@ function fetch(callback) {
 		},
 		gzip: true
 	};
+
+	if (process.env.APPC_CONFIG_PROXY && process.env.APPC_CONFIG_PROXY !== 'undefined') {
+		opts.proxy = process.env.APPC_CONFIG_PROXY;
+	}
+
 	// send the HTTP request
 	request(opts, function(err,resp,body){
 		if (err) {
