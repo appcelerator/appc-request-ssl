@@ -8,7 +8,7 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 		mochaTest: {
 			options: {
-				timeout: 3000,
+				timeout: 3500,
 				reporter: 'spec',
 				ignoreLeaks: false,
 				globals: []
@@ -17,7 +17,7 @@ module.exports = function(grunt) {
 		},
 		appcJs: {
 			options: {
-				force: true
+				force: false
 			},
 			src: ['index.js', 'lib/**/*.js', 'test/**/*.js']
 		},

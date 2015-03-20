@@ -13,29 +13,29 @@ var should = require('should'),
 	path = require('path'),
 	gen = require('../generate');
 
-describe('should be able to validate all the certificates',function(){
-	gen.DOMAINS.forEach(function(domain){
-		it('should get fingerprint for '+domain,function(done){
-			request.getFingerprintForURL(domain, function(err,f) {
+describe('should be able to validate all the certificates', function () {
+	gen.DOMAINS.forEach(function (domain) {
+		it('should get fingerprint for ' + domain, function (done) {
+			request.getFingerprintForURL(domain, function (err, f) {
 				should(err).be.null;
 				should(f).be.a.String;
-				var fn = path.join(__dirname,'..','fingerprints',domain);
+				var fn = path.join(__dirname, '..', 'fingerprints', domain);
 				should(fs.existsSync(fn)).be.true;
 				should(fs.readFileSync(fn).toString()).be.equal(f);
 				done();
 			});
 		});
 	});
-	gen.DOMAINS.forEach(function(domain){
-		it('should be able to connect to '+domain,function(done){
-			var req = request.get('https://'+domain,function(err,resp){
+	gen.DOMAINS.forEach(function (domain) {
+		it('should be able to connect to ' + domain, function (done) {
+			var req = request.get('https://' + domain, function (err, resp) {
 				should(err).be.null;
 				should(resp).be.an.object;
 				done();
 			});
-			req.on('error',done);
-			req.on('timeout',function(){
-				done('timed out connecting to '+domain);
+			req.on('error', done);
+			req.on('timeout', function () {
+				done('timed out connecting to ' + domain);
 			});
 		});
 	});
