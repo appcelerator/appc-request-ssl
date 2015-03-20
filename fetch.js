@@ -12,7 +12,13 @@ var request = require('./node_modules/request-ssl'),
 	fs = require('fs'),
 	urlib = require('url'),
 	tmpdir = require('os').tmpdir(),
-	dir = path.join(tmpdir, 'appc-request-ssl');
+	dir = path.join(tmpdir, 'appc-request-ssl'),
+
+	// set the appropriate security server for loading the certificates based on the environment
+	securityServer = process.env.APPC_SECURITY_SERVER ? process.env.APPC_SECURITY_SERVER :
+					process.env.APPC_ENV==='preproduction' || process.env.NODE_ENV==='preproduction' ?
+					'https://de7a3ab4b12bf1d3d4b7fde7f306c11bc2b98f67.cloudapp-enterprise-preprod.appctest.com' :
+					'https://4503ef0cc4daae71d3bb898f66c72b886c9f6d61.cloudapp-enterprise.appcelerator.com';
 
 /**
  * this function will fetch the SSL fingerprints from the security server for all
@@ -30,10 +36,9 @@ function fetch(callback) {
 	if (fs.existsSync(etagFn)) {
 		etag = fs.readFileSync(etagFn).toString().trim();
 	}
-	var server = process.env.APPC_SECURITY_SERVER || 'https://4503ef0cc4daae71d3bb898f66c72b886c9f6d61.cloudapp-enterprise.appcelerator.com';
 	var opts = {
 		method: 'get',
-		url: urlib.resolve(server,'/ssl-fingerprints'),
+		url: urlib.resolve(securityServer,'/ssl-fingerprints'),
 		headers: {
 			'User-Agent': 'Appcelerator (appc-request-ssl)/'+require('./package.json').version,
 			'If-None-Match': etag || ''
