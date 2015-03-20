@@ -28,7 +28,7 @@ describe('should be able to validate all the certificates', function () {
 		});
 	});
 	gen.DOMAINS.forEach(function (domain) {
-		it('should be able to connect to ' +  domain, function (done) {
+		it('should be able to connect to ' + domain, function (done) {
 			var req = request.get('https://' + domain, function (err, resp) {
 				should(err).be.null;
 				should(resp).be.an.object;
