@@ -1,4 +1,4 @@
-# Appcelerator Request SSL
+# Appcelerator Request SSL [![Coverage Status](https://coverage.appcelerator.com/appcelerator/appc-request-ssl/label_master.svg)](https://coverage.appcelerator.com/appcelerator#appc-request-ssl)
 
 > This library when used, will add all the external HTTPS SSL certificate fingerprints for domains used by Appcelerator software (Node.JS based).
 
