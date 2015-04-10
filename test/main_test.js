@@ -40,4 +40,13 @@ describe('should be able to validate all the certificates', function () {
 			});
 		});
 	});
+	it('should be able to fetch', function (done) {
+		var fetch = require('../fetch');
+		fetch(function (err, body, dir) {
+			should(err).be.not.ok;
+			should(dir).be.a.string;
+			should(fs.existsSync(dir)).be.true;
+			done();
+		});
+	});
 });

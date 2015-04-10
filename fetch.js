@@ -12,7 +12,12 @@ var request = require('request-ssl'),
 	fs = require('fs'),
 	urlib = require('url'),
 	tmpdir = require('os').tmpdir(),
+	index = require('./'),
 	dir = path.join(tmpdir, 'appc-request-ssl'),
+	invoked,
+
+	// max attempts to retry to download before giving up
+	maxAttempts = 3,
 
 	// set the appropriate security server for loading the certificates based on the environment
 	securityServer = process.env.APPC_SECURITY_SERVER ? process.env.APPC_SECURITY_SERVER :
@@ -26,10 +31,16 @@ var request = require('request-ssl'),
  * for any new certs each time this method is called, however, will only pull down
  * new ones if there are any changes from what we already have cached.
  */
-function fetch(callback) {
+function fetch(callback, count) {
+	if (invoked) {
+		return callback(null,null,dir);
+	}
 	if (!fs.existsSync(dir)) {
 		fs.mkdirSync(dir);
 	}
+	request.addFingerprintDirectory(dir);
+	invoked = true;
+	count = (count || 0) + 1;
 	// attempt to read in the etag cached file if it exists
 	var etagFn = path.join(dir, '.etag'),
 		etag;
@@ -52,12 +63,27 @@ function fetch(callback) {
 
 	// send the HTTP request
 	request(opts, function(err,resp,body){
-		if (err) {
+		// console.log('request=>',err,err && err.code,err &&err.message,body,resp && resp.statusCode);
+		if (err || (resp && resp.statusCode===404)) {
+			// if an error (not found) or we get a 404 (possibly in deployment)
+			if ((err && err.code === 'ENOTFOUND') || (resp && resp.statusCode===404)) {
+				// if we already have certificates, return assuming we have the latest
+				if (fs.readdirSync(dir).length) {
+					return callback(null,null,dir);
+				}
+				// if we've exceeded our max attempts, return
+				if (count > maxAttempts) {
+					return callback(null,null,dir);
+				}
+				// we're probably not online, try again ...
+				return setTimeout(function(){
+					fetch(callback, count);
+				},5000);
+			}
 			return callback(new Error("Error fetching SSL certificates. "+err));
 		}
 		// not modified, no changes from what we have locally so we can just continue
 		if (resp.statusCode === 304) {
-			request.addFingerprintDirectory(dir);
 			return callback(null,null,dir);
 		}
 		// we received new fingerprints, we need to update our local cache
@@ -76,7 +102,6 @@ function fetch(callback) {
 				var entry = body[c];
 				fs.writeFileSync(path.join(dir, entry.domain), entry.fingerprint);
 			}
-			request.addFingerprintDirectory(dir);
 			callback(null, body, dir);
 		}
 		else {

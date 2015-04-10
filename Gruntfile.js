@@ -11,7 +11,11 @@ module.exports = function(grunt) {
 				timeout: 3500,
 				reporter: 'spec',
 				ignoreLeaks: false,
-				globals: []
+				globals: [
+					'requestSSLInitializing',
+					'requestSSLInsideHook',
+					'requestSSLInitialized'
+				]
 			},
 			src: tests
 		},
