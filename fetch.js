@@ -47,6 +47,7 @@ function fetch(callback, count) {
 	if (fs.existsSync(etagFn)) {
 		etag = fs.readFileSync(etagFn).toString().trim();
 	}
+	var fingerprint = fs.readFileSync(path.join(__dirname,'fingerprints',securityServer.replace('https://',''))).toString();
 	var opts = {
 		method: 'get',
 		url: urlib.resolve(securityServer,'/ssl-fingerprints'),
@@ -54,7 +55,8 @@ function fetch(callback, count) {
 			'User-Agent': 'Appcelerator (appc-request-ssl)/'+require('./package.json').version,
 			'If-None-Match': etag || ''
 		},
-		gzip: true
+		gzip: true,
+		fingerprint: fingerprint
 	};
 
 	if (process.env.APPC_CONFIG_PROXY && process.env.APPC_CONFIG_PROXY !== 'undefined') {
