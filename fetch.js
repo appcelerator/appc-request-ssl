@@ -66,7 +66,7 @@ function fetch(callback, count) {
 		// console.log('request=>',err,err && err.code,err &&err.message,body,resp && resp.statusCode);
 		if (err || (resp && resp.statusCode===404)) {
 			// if an error (not found) or we get a 404 (possibly in deployment)
-			if ((err && err.code === 'ENOTFOUND') || (resp && resp.statusCode===404)) {
+			if ((err && (err.code === 'ENOTFOUND' || err.code === 'ETIMEDOUT')) || (resp && resp.statusCode===404)) {
 				// if we already have certificates, return assuming we have the latest
 				if (fs.readdirSync(dir).length) {
 					return callback(null,null,dir);
