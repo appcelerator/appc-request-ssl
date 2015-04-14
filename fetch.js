@@ -47,7 +47,7 @@ function fetch(callback, count) {
 	if (fs.existsSync(etagFn)) {
 		etag = fs.readFileSync(etagFn).toString().trim();
 	}
-	var fingerprint = fs.readFileSync(path.join(__dirname,'fingerprints',securityServer.replace('https://',''))).toString();
+	var fingerprintFn = path.join(__dirname,'fingerprints',securityServer.replace('https://',''));
 	var opts = {
 		method: 'get',
 		url: urlib.resolve(securityServer,'/ssl-fingerprints'),
@@ -56,7 +56,7 @@ function fetch(callback, count) {
 			'If-None-Match': etag || ''
 		},
 		gzip: true,
-		fingerprint: fingerprint
+		fingerprint: fs.existsSync(fingerprintFn) && fs.readFileSync(fingerprintFn).toString()
 	};
 
 	if (process.env.APPC_CONFIG_PROXY && process.env.APPC_CONFIG_PROXY !== 'undefined') {
