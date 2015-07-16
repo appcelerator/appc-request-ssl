@@ -5,11 +5,4 @@ node_js:
 - '0.12'
 script:
 - grunt cover
-deploy:
-  provider: npm
-  email: npmjs@appcelerator.com
-  api_key:
-    secure: DSrLFcfu9uB0EQ7olQDblOzjXtbMzJbUBabb/iIq02h0ed1qGYIDddFw12TMx12/CHDEq6wgcUX0qRYxOxnvl8+CqwN0HejEVWQAHbo8ZtT2tPtoCP1TEbRfhirYXXeHLqAuOQrCB0vxHfXtLoLody6+YyftB3uBi5OHrUz+ask=
-  on:
-    tags: true
-    repo: appcelerator/appc-request-ssl
+
