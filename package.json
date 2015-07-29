@@ -1,6 +1,6 @@
 {
   "name": "appc-request-ssl",
-  "version": "1.0.29",
+  "version": "1.0.30",
   "description": "Appcelerator Configured Request SSL Pinning Library",
   "main": "index.js",
   "scripts": {
@@ -32,6 +32,7 @@
     "ensure-latest": "^1.0.2",
     "grunt-appc-coverage": "^0.2.0",
     "grunt-appc-js": "^1.0.0",
+    "grunt": "^0.4.5",
     "grunt-cli": "^0.1.13",
     "grunt-kahvesi": "^0.2.0",
     "grunt-mocha-test": "^0.12.6",
