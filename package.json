@@ -1,11 +1,10 @@
 {
   "name": "appc-request-ssl",
-  "version": "1.0.30",
+  "version": "1.0.31",
   "description": "Appcelerator Configured Request SSL Pinning Library",
   "main": "index.js",
   "scripts": {
-    "test": "grunt",
-    "preinstall":"node ./bin/update"
+    "test": "grunt"
   },
   "repository": {
     "type": "git",
@@ -25,10 +24,10 @@
   },
   "homepage": "https://github.com/appcelerator/appc-request-ssl",
   "dependencies": {
-    "request-ssl": "0.0.14"
+    "request-ssl": "~0.0.14"
   },
   "devDependencies": {
-    "async": "^0.9.0",
+    "async": "^1.4.0",
     "ensure-latest": "^1.0.2",
     "grunt-appc-coverage": "^0.2.0",
     "grunt-appc-js": "^1.0.0",
@@ -37,9 +36,6 @@
     "grunt-kahvesi": "^0.2.0",
     "grunt-mocha-test": "^0.12.6",
     "mocha": "^2.1.0",
-    "should": "^4.6.0"
-  },
-  "ensureLatest":[
-    "request-ssl"
-  ]
+    "should": "^7.0.2"
+  }
 }
