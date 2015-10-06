@@ -1,10 +1,13 @@
 {
   "name": "appc-request-ssl",
-  "version": "1.0.31",
+  "version": "1.0.32",
   "description": "Appcelerator Configured Request SSL Pinning Library",
   "main": "index.js",
   "scripts": {
     "test": "grunt"
+  },
+  "bugs": {
+    "url": "https://jira.appcelerator.org/browse/API"
   },
   "repository": {
     "type": "git",
