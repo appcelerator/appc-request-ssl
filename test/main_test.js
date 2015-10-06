@@ -16,7 +16,7 @@ var should = require('should'),
 
 describe('should be able to validate all the certificates', function () {
 	gen.DOMAINS.forEach(function (domain) {
-		it('should get fingerprint for ' + domain, function (done) {
+		it.skip('should get fingerprint for ' + domain, function (done) {
 			request.getFingerprintForURL(domain, function (err, f) {
 				should(err).be.null;
 				should(f).be.a.String;

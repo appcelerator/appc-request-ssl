@@ -12,7 +12,7 @@
 const DOMAINS = [
 	'security.appcelerator.com',
 	// pre-production
-	'de7a3ab4b12bf1d3d4b7fde7f306c11bc2b98f67.cloudapp-enterprise-preprod.appctest.com',
+	// 'de7a3ab4b12bf1d3d4b7fde7f306c11bc2b98f67.cloudapp-enterprise-preprod.appctest.com',
 	// production
 	'4503ef0cc4daae71d3bb898f66c72b886c9f6d61.cloudapp-enterprise.appcelerator.com',
 ];
