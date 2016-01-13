@@ -21,7 +21,7 @@
     "appc-jira-cli"
   ],
   "author": "Jeff Haynie",
-  "license": "Appcelerator Software License (non-open source)",
+	"license": "LicenseRef-LICENSE",
   "bugs": {
     "url": "https://github.com/appcelerator/appc-request-ssl/issues"
   },
