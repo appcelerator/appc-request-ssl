@@ -4,10 +4,10 @@
   "description": "Appcelerator Configured Request SSL Pinning Library",
   "main": "index.js",
   "scripts": {
-    "test": "grunt"
+    "test": "JUNIT_REPORT_PATH=junit_report.xml grunt"
   },
   "bugs": {
-    "url": "https://jira.appcelerator.org/browse/API"
+    "url": "https://github.com/appcelerator/appc-request-ssl/issues"
   },
   "repository": {
     "type": "git",
@@ -21,10 +21,7 @@
     "appc-jira-cli"
   ],
   "author": "Jeff Haynie",
-	"license": "LicenseRef-LICENSE",
-  "bugs": {
-    "url": "https://github.com/appcelerator/appc-request-ssl/issues"
-  },
+  "license": "LicenseRef-LICENSE",
   "homepage": "https://github.com/appcelerator/appc-request-ssl",
   "dependencies": {
     "request-ssl": "~0.0.14"
@@ -32,13 +29,13 @@
   "devDependencies": {
     "async": "^1.4.0",
     "ensure-latest": "^1.0.2",
-    "grunt-appc-coverage": "^0.2.0",
-    "grunt-appc-js": "^1.0.0",
-    "grunt": "^0.4.5",
-    "grunt-cli": "^0.1.13",
-    "grunt-kahvesi": "^0.2.0",
+    "grunt": "^1.0.1",
+    "grunt-appc-js": "^1.0.19",
+    "grunt-mocha-istanbul": "^5.0.2",
     "grunt-mocha-test": "^0.12.6",
+    "istanbul": "^0.4.1",
     "mocha": "^2.1.0",
+    "mocha-jenkins-reporter": "^0.3.7",
     "should": "^7.0.2"
   }
 }
